@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>МАМА Я ТЕБЕ ЛЮБЛЮ</title>
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      background-color: #0d1117;
+      overflow: hidden;
+      font-family: 'Arial', sans-serif;
+    }
+
+    #text {
+      position: absolute;
+      white-space: nowrap;
+      font-size: 2rem;
+      font-weight: bold;
+      color: #ff4b4b;
+      text-shadow: 0 0 15px rgba(255, 75, 75, 0.7);
+      user-select: none;
+    }
+  </style>
+</head>
+<body>
+
+  <div id="text">МАМА Я ТЕБЕ ЛЮБЛЮ</div>
+
+  <script>
+    const text = document.getElementById('text');
+    let x = 100;
+    let y = 100;
+    let speedX = 3;
+    let speedY = 3;
+
+    function animate() {
+      const screenWidth = window.innerWidth;
+      const screenHeight = window.innerHeight;
+      const textWidth = text.offsetWidth;
+      const textHeight = text.offsetHeight;
+
+      x += speedX;
+      y += speedY;
+
+      if (x + textWidth >= screenWidth || x <= 0) {
+        speedX = -speedX;
+      }
+      if (y + textHeight >= screenHeight || y <= 0) {
+        speedY = -speedY;
+      }
+
+      text.style.left = x + 'px';
+      text.style.top = y + 'px';
+
+      requestAnimationFrame(animate);
+    }
+
+    animate();
+  </script>
+</body>
+</html>
