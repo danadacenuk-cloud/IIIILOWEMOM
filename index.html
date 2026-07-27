@@ -5,35 +5,44 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>МАМА Я ТЕБЕ ЛЮБЛЮ</title>
   <style>
+    * {
+      box-sizing: border-box;
+    }
+
     body {
       margin: 0;
       padding: 0;
       background-color: #0d1117;
       overflow: hidden;
       font-family: 'Arial', sans-serif;
+      width: 100vw;
+      height: 100vh;
     }
 
     #text {
       position: absolute;
-      white-space: nowrap;
-      font-size: 2rem;
-      font-weight: bold;
+      font-size: clamp(1.8rem, 6vw, 3.5rem);
+      font-weight: 900;
       color: #ff4b4b;
-      text-shadow: 0 0 15px rgba(255, 75, 75, 0.7);
+      text-shadow: 0 0 20px rgba(255, 75, 75, 0.8);
       user-select: none;
+      text-align: center;
+      max-width: 90vw;
+      line-height: 1.2;
+      word-wrap: break-word;
     }
   </style>
 </head>
 <body>
 
-  <div id="text">МАМА Я ТЕБЕ ЛЮБЛЮ</div>
+  <div id="text">МАМА<br>Я ТЕБЕ ЛЮБЛЮ</div>
 
   <script>
     const text = document.getElementById('text');
-    let x = 100;
-    let y = 100;
-    let speedX = 3;
-    let speedY = 3;
+    let x = 20;
+    let y = 20;
+    let speedX = 1.5;
+    let speedY = 1.5;
 
     function animate() {
       const screenWidth = window.innerWidth;
